@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const CounterApp = () => {
+    const [counter, setCounter] = useState(0);
 
-export default App;
+    const incrementCounter = () => {
+        setCounter(counter + 1);
+    };
+
+    const decrementCounter = () => {
+        setCounter(counter - 1);
+    };
+
+    return (
+        <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100vh'
+        }}>
+            <div style={{ border: '2px solid #ccc', padding: '20px', borderRadius: '8px' }}>
+                <h1>Счетчик: {counter}</h1>
+                <button onClick={incrementCounter}>Увеличить</button>
+                <button onClick={decrementCounter}>Уменьшить</button>
+            </div>
+        </div>
+    );
+};
+
+export default CounterApp;
